@@ -53,3 +53,36 @@ function spotifyCall(songName) {
     );
   });
 }
+
+function movieThis(movieName) {
+  if (!movieName) {
+    movieName = "Mr. Nobody";
+  }
+  var queryUrl =
+    "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
+
+  axios.get(queryUrl).then(function(response) {
+    if (!movieName) {
+      movieName = "Mr. Nobody";
+    }
+    console.log(
+      "\n_Movie Info_" +
+        "\nTitle: " +
+        response.data.Title +
+        "\nRelease Year: " +
+        response.data.Year +
+        "\nRating: " +
+        response.data.Rated +
+        "\nRelease Country: " +
+        response.data.Country +
+        "\nLanguage: " +
+        response.data.Language +
+        "\nPlot: " +
+        response.data.Plot +
+        "\nActors: " +
+        response.data.Actors +
+        "\n" +
+        "\n Great Movie!"
+    );
+  });
+}

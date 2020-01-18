@@ -97,3 +97,33 @@ function doThing() {
     spotifyCall(txt[1]);
   });
 }
+
+function concertThis(artist) {
+  const url = "https://rest.bandsintown.com/artists/" + artist + "/events?";
+  axios
+    .get(url, {
+      params: {
+        app_id: "codingbootcamp"
+      }
+    })
+    .then(function(res) {
+      const concerts = res.data;
+      for (var i = 0; i < concerts.length; i++) {
+        console.log("=======");
+        console.log("Venue: " + concerts[i].venue.name);
+        console.log(
+          "Location: " +
+            concerts[i].venue.city +
+            ", " +
+            concerts[i].venue.region +
+            " " +
+            concerts[i].venue.country
+        );
+        console.log(
+          "When: " +
+            moment(concerts[i].datetime).format("dddd, MMMM Do YYYY, h:mm:ss a")
+        );
+      }
+    })
+    .catch(console.error);
+}

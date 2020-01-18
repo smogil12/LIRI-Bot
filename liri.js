@@ -22,6 +22,9 @@ switch (option) {
   case "concert-this":
     concertThis(query);
     break;
+  case "do-what-it-says":
+    doThing();
+    break;
   default:
     fs.readFile("random.txt", "utf8", function(error, data) {
       var data = data.split(",");
@@ -84,5 +87,13 @@ function movieThis(movieName) {
         "\n" +
         "\n Great Movie!"
     );
+  });
+}
+
+function doThing() {
+  fs.readFile("random.txt", "utf8", function(error, data) {
+    var txt = data.split(",");
+
+    spotifyCall(txt[1]);
   });
 }

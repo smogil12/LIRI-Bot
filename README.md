@@ -11,6 +11,6 @@ This application uses 4 node packages. Node-Spotify-Api, Axios, Moment, and DotE
 ### Commands
 
 *concert-this <br>
-*spotify-this-song
-*movie-this
+*spotify-this-song<br>
+*movie-this<br>
 *do-what-it-says
